@@ -1,5 +1,5 @@
 using Landis.Utilities;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 using Landis.Library.SiteHarvest;
 using System.Collections.Generic;
 
@@ -56,10 +56,10 @@ namespace Landis.Library.BiomassHarvest
         {
                 ushort ageToLookUp = 0;
                 AgeRange? containingRange;
-                if (agesAndRanges.Contains(cohort.Age, out containingRange))
+                if (agesAndRanges.Contains(cohort.Data.Age, out containingRange))
                 {
                     if (! containingRange.HasValue)
-                        ageToLookUp = cohort.Age;
+                        ageToLookUp = cohort.Data.Age;
                     else {
                         ageToLookUp = containingRange.Value.Start;
                     }

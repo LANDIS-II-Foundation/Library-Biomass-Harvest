@@ -1,5 +1,5 @@
 ﻿using Landis.Core;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 using log4net;
 using System.Collections.Generic;
 
@@ -68,9 +68,9 @@ namespace Landis.Library.BiomassHarvest
             if (isDebugEnabled)
                 log.DebugFormat("    cohort died: {0}, age {1}, biomass {2}",
                                 cohort.Species.Name,
-                                cohort.Age,
-                                cohort.Biomass);
-            RecordHarvest(cohort.Species, cohort.Biomass);
+                                cohort.Data.Age,
+                                cohort.Data.Biomass);
+            RecordHarvest(cohort.Species, cohort.Data.Biomass);
         }
 
         //---------------------------------------------------------------------

@@ -1,6 +1,6 @@
 ﻿using Landis.Utilities;
 using Landis.Core;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 using Landis.Library.SiteHarvest;
 using Landis.SpatialModeling;
 using log4net;
@@ -20,7 +20,7 @@ namespace Landis.Library.BiomassHarvest
     /// range).
     /// </remarks>
     public class PartialCohortCutter
-        : WholeCohortCutter, BiomassCohorts.IDisturbance
+        : WholeCohortCutter, IDisturbance
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(PartialCohortCutter));
         private static readonly bool isDebugEnabled = log.IsDebugEnabled;
@@ -53,12 +53,12 @@ namespace Landis.Library.BiomassHarvest
             {
                 Percentage percentage;
                 if (specificAgeCohortSelector.Selects(cohort, out percentage))
-                    reduction = (int)(percentage * cohort.Biomass);
+                    reduction = (int)(percentage * cohort.Data.Biomass);
             }
             if (reduction > 0)
             {
                 cohortCounts.IncrementCount(cohort.Species);
-                if (reduction < cohort.Biomass)
+                if (reduction < cohort.Data.Biomass)
                     partialCohortCounts.IncrementCount(cohort.Species);
             }
 
@@ -116,8 +116,8 @@ namespace Landis.Library.BiomassHarvest
             if (isDebugEnabled)
                 log.DebugFormat("    {0}, age {1}, biomass {2} : reduction = {3}",
                                 cohort.Species.Name,
-                                cohort.Age,
-                                cohort.Biomass,
+                                cohort.Data.Age,
+                                cohort.Data.Biomass,
                                 reduction);
         }
     }
