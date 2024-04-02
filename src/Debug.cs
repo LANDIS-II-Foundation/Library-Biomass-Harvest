@@ -1,4 +1,4 @@
-﻿using Landis.Library.BiomassCohorts;
+﻿using Landis.Library.UniversalCohorts;
 using Landis.SpatialModeling;
 using log4net;
 
@@ -26,7 +26,7 @@ namespace Landis.Library.BiomassHarvest
                 string cohort_list = "";
                 foreach (ICohort cohort in speciesCohorts)
                 {
-                    cohort_list += string.Format(", {0} yrs ({1})", cohort.Age, cohort.Biomass);
+                    cohort_list += string.Format(", {0} yrs ({1})", cohort.Data.Age, cohort.Data.Biomass);
                 }
                 log.DebugFormat("      {0}{1}", speciesCohorts.Species.Name, cohort_list);
                 count += 1;
