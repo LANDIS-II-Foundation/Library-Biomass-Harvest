@@ -39,7 +39,7 @@ namespace Landis.Library.BiomassHarvest
         /// </summary>
         public static void Initialize()
         {
-            Cohorts = Model.Core.GetSiteVar<ISiteCohorts>("Succession.BiomassCohorts");
+            Cohorts = Model.Core.GetSiteVar<ISiteCohorts>("Succession.UniversalCohorts");
         }
     }
 }
