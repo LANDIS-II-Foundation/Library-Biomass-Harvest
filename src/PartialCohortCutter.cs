@@ -89,7 +89,7 @@ namespace Landis.Library.BiomassHarvest
 
             // Then do any partial harvesting with the partial cohort selectors.
             this.cohortCounts = cohortCounts;
-            SiteVars.Cohorts[site].ReduceOrKillBiomassCohorts(this);
+            SiteVars.Cohorts[site].ReduceOrKillCohorts(this);
 
             if (isDebugEnabled)
             {
