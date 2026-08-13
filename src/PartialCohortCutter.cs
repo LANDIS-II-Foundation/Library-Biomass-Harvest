@@ -112,7 +112,8 @@ namespace Landis.Library.BiomassHarvest
         protected void Record(double     fractionReduction,
                               ICohort cohort)
         {
-            SiteBiomass.RecordHarvest(cohort.Species, ((int) fractionReduction * cohort.Data.Biomass));
+            //SiteBiomass.RecordHarvest(cohort.Species, ((int) fractionReduction * cohort.Data.Biomass));
+            SiteBiomass.RecordHarvest(cohort.Species, ((int)(fractionReduction * cohort.Data.Biomass)));
             if (isDebugEnabled)
                 log.DebugFormat("    {0}, age {1}, biomass {2} : reduction = {3}",
                                 cohort.Species.Name,
